@@ -7,7 +7,7 @@ from sampling import weighted_choice
 
 class markov(dict):
     
-    def __init__(self, word_list = None, order = 8):
+    def __init__(self, word_list = None, order = 1):
         ''' markov initializer'''
         super(markov, self).__init__()
         
@@ -73,9 +73,9 @@ def list_convert(text_string):
 def main():
     text_file = read_text_file("harry_potter.txt")
     text_list = list_convert(text_file)
-    markov_chain = markov(text_list, 8)
+    markov_chain = markov(text_list, 20)
     markov_chain.create_markov(text_list)
-    string = markov_chain.generate_sentence(text_file, 15)
+    string = markov_chain.generate_sentence(text_file, 10 - 1)
     
     
     return string 
